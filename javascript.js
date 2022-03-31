@@ -12,7 +12,7 @@ function computerPlay() {
     }
 }
 function playerPlay(){
-    let result = window.prompt("Enter your selection").toLowerCase();
+    let result = window.prompt("Rock Paper or Scissors").toLowerCase();
 
     if (result== "rock" || result== "paper" || result== "scissors"){
         return result;
@@ -25,35 +25,35 @@ function playerPlay(){
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock"){
         if (computerSelection == "rock"){
-            console.log("tie");
+            return "tie";
         }
         else if (computerSelection == "paper"){
-            console.log("you lose");
+            return "you lose";
         }
         else if (computerSelection == "scissors") {
-            console.log("you win");
+            return "you win";
         }
     }
     else if(playerSelection == "paper"){
         if (computerSelection == "rock"){
-            console.log("you win");
+            return "you win";
         }
         else if (computerSelection == "paper"){
-            console.log("tie");
+            return "tie";
         }
         else if (computerSelection == "scissors"){
-            console.log("you lose");
+            return "you lose";
         }
     }
     else if(playerSelection == "scissors"){
         if (computerSelection == "rock"){
-            console.log("you lose");
+            return "you lose";
         }
         else if (computerSelection == "paper"){
-            console.log("you win");
+            return "you win";
         }
         else if (computerSelection == "scissors"){
-            console.log("tie");
+            return "tie";
         }
     }
 }    
@@ -61,10 +61,8 @@ function game() {
     let wins = 0;
     let losses = 0;
     for (let i = 0; i <5; i++){
-        playRound();
+        console.log(playRound(playerPlay(), computerPlay()));
     }
 }
-const computerSelection = computerPlay();
-const playerSelection = playerPlay();
 game();
 
