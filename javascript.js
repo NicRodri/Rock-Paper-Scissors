@@ -11,6 +11,7 @@ function computerPlay() {
         return "scissors";
     }
 }
+//Takes your input and returns value if it matches rock paper or scissors. User values are not case sensitive
 function playerPlay(){
     let result = window.prompt("Rock Paper or Scissors").toLowerCase();
 
@@ -21,7 +22,7 @@ function playerPlay(){
         return "Not a valid value!!";
     }
 }
-
+//At the moment any value not rock paper or scissors is not accounted for
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock"){
         if (computerSelection == "rock"){
@@ -56,7 +57,8 @@ function playRound(playerSelection, computerSelection){
             return "tie";
         }
     }
-}    
+}  
+//Plays the rock paper scissor game  
 function game() {
     let wins = 0;
     let losses = 0;
