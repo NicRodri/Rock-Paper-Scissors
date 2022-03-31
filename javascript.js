@@ -11,12 +11,60 @@ function computerPlay() {
         return "scissors";
     }
 }
-function playerPlay(clicked_id){
-        return clicked_id;
+function playerPlay(){
+    let result = window.prompt("Enter your selection").toLowerCase();
+
+    if (result== "rock" || result== "paper" || result== "scissors"){
+        return result;
     }
-const computerSelection = computerPlay();
-const playerSelection = playerPlay();
+    else {
+        return "Not a valid value!!";
+    }
+}
 
 function playRound(playerSelection, computerSelection){
-    
+    if (playerSelection == "rock"){
+        if (computerSelection == "rock"){
+            console.log("tie");
+        }
+        else if (computerSelection == "paper"){
+            console.log("you lose");
+        }
+        else if (computerSelection == "scissors") {
+            console.log("you win");
+        }
+    }
+    else if(playerSelection == "paper"){
+        if (computerSelection == "rock"){
+            console.log("you win");
+        }
+        else if (computerSelection == "paper"){
+            console.log("tie");
+        }
+        else if (computerSelection == "scissors"){
+            console.log("you lose");
+        }
+    }
+    else if(playerSelection == "scissors"){
+        if (computerSelection == "rock"){
+            console.log("you lose");
+        }
+        else if (computerSelection == "paper"){
+            console.log("you win");
+        }
+        else if (computerSelection == "scissors"){
+            console.log("tie");
+        }
+    }
+}    
+function game() {
+    let wins = 0;
+    let losses = 0;
+    for (let i = 0; i <5; i++){
+        playRound();
+    }
 }
+const computerSelection = computerPlay();
+const playerSelection = playerPlay();
+game();
+
