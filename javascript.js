@@ -63,7 +63,23 @@ function game() {
     let wins = 0;
     let losses = 0;
     for (let i = 0; i <5; i++){
-        console.log(playRound(playerPlay(), computerPlay()));
+        let round = playRound(playerPlay(), computerPlay());
+        console.log(round);
+        if (round == "you win"){
+            wins++;
+        }
+        else if (round == "you lose"){
+            losses++;
+        } 
+    }
+    if ((wins-losses)>0){
+        console.log("Winnnner")
+    }
+    else if ((wins-losses)<0){
+        console.log("You lose, unfortunate")
+    }
+    else {
+        console.log("Game tied, no victors")
     }
 }
 game();
