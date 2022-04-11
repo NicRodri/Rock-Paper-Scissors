@@ -34,27 +34,22 @@ function game(){
                 if (round == "you win"){
                     winsPlayer++;
                     pScore.textContent = "Player-" + winsPlayer;
-                    console.log(round + "! " + playerSelection + " beats "+ computerSelection);
                 }
                 else if (round == "you lose"){
                     winsComputer++;
                     cScore.textContent = "Computer-" + winsComputer;
-                    console.log(round + "! " + computerSelection + " beats "+ playerSelection);
                 } 
                 else{
                     ties++;
                     tieScore.textContent = "Ties-" + ties;
-                    console.log(round); 
                 }
                 if(winsPlayer == 5){
                     gameEnd = true;
                     gameFinish.textContent= "Congrats you win!!!";
-                    console.log("congrats on winning");
                 }
                 else if(winsComputer == 5){
                     gameEnd = true;
                     gameFinish.textContent= "You lose!!!";
-                    console.log("you lose.........");
                 }
                 //Allows the option to play a new game
                 if(winsPlayer==5||winsComputer==5){
