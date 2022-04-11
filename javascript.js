@@ -15,7 +15,14 @@ function computerPlay() {
 function game(){
     let winsPlayer = 0;
     let winsComputer = 0;
+    let ties = 0;
     let gameEnd = false;
+    const pScore = document.getElementById("playerScore");
+    const pPlay = document.getElementById("playerPlay");
+    const cScore = document.getElementById("computerScore");
+    const cPlay = document.getElementById("computerPlay");
+    const tieScore = document.getElementById("tieScore");
+    const gameFinish = document.getElementById("gameEnd");
     const btns = document.querySelectorAll('.btn');
     btns.forEach((btn) => {
         btn.addEventListener('click', function(e){
@@ -26,22 +33,28 @@ function game(){
                 
                 if (round == "you win"){
                     winsPlayer++;
+                    pScore.textContent = "Player-" + winsPlayer;
                     console.log(round + "! " + playerSelection + " beats "+ computerSelection);
                 }
                 else if (round == "you lose"){
                     winsComputer++;
+                    cScore.textContent = "Computer-" + winsComputer;
                     console.log(round + "! " + computerSelection + " beats "+ playerSelection);
                 } 
                 else{
+                    ties++;
+                    tieScore.textContent = "Ties-" + ties;
                     console.log(round); 
                 }
     
                 if(winsPlayer == 5){
                     gameEnd = true;
+                    gameFinish.textContent= "Congrats you win!!!";
                     console.log("congrats on winning");
                 }
                 else if(winsComputer == 5){
                     gameEnd = true;
+                    gameFinish.textContent= "You lose!!!";
                     console.log("you lose.........");
                 }
             }
@@ -88,38 +101,6 @@ function playRound(playerSelection, computerSelection){
     }
 }  
 
-/*Plays the rock paper scissor game  
-function game() {
-    playerPlay();
-    let wins = 0;
-    let losses = 0;
-    for (let i = 0; i <5; i++){
-        let player='';
-        let computer = computerPlay();
-        let round = playRound(player, computer);
-        
-        if (round == "you win"){
-            wins++;
-            console.log(round + "! " + player + " beats "+ computer);
-        }
-        else if (round == "you lose"){
-            losses++;
-            console.log(round + "! " + computer + " beats "+ player);
-        } 
-        else{
-            console.log(round); 
-        }
-    }
-    if ((wins-losses)>0){
-        console.log("Winnnner")
-    }
-    else if ((wins-losses)<0){
-        console.log("You lose, unfortunate")
-    }
-    else if ((wins-losses) == 0){
-        console.log("Game tied, no victors")
-    }
-} */
 
 
   
