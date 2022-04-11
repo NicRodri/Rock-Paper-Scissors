@@ -12,16 +12,32 @@ function computerPlay() {
     }
 }
 //Takes your input and returns value if it matches rock paper or scissors. User values are not case sensitive
-function playerPlay(){
-    let result = window.prompt("Rock Paper or Scissors").toLowerCase();
-
-    if (result== "rock" || result== "paper" || result== "scissors"){
-        return result;
-    }
-    else {
-        return "Not a valid value!!";
-    }
+function game(){
+    let winsPlayer = 0;
+    let winsComputer = 0;
+    const btns = document.querySelectorAll('.btn');
+    btns.forEach((btn) => {
+        btn.addEventListener('click', function(e){
+            const playerSelection = this.textContent.toLowerCase();
+            const computerSelection = computerPlay();
+            let round = playRound(playerSelection, computerSelection);
+            
+            if (round == "you win"){
+                winsPlayer++;
+                console.log(round + "! " + playerSelection + " beats "+ computerSelection);
+            }
+            else if (round == "you lose"){
+                winsComputer++;
+                console.log(round + "! " + computerSelection + " beats "+ playerSelection);
+            } 
+            else{
+                console.log(round); 
+            }
+    });
+});
 }
+game();
+
 //At the moment any value not rock paper or scissors is not accounted for
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock"){
@@ -58,12 +74,14 @@ function playRound(playerSelection, computerSelection){
         }
     }
 }  
-//Plays the rock paper scissor game  
+
+/*Plays the rock paper scissor game  
 function game() {
+    playerPlay();
     let wins = 0;
     let losses = 0;
     for (let i = 0; i <5; i++){
-        let player= playerPlay();
+        let player='';
         let computer = computerPlay();
         let round = playRound(player, computer);
         
@@ -88,6 +106,7 @@ function game() {
     else if ((wins-losses) == 0){
         console.log("Game tied, no victors")
     }
-}
-game();
+} */
 
+
+  
