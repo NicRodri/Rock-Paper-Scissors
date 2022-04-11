@@ -15,24 +15,37 @@ function computerPlay() {
 function game(){
     let winsPlayer = 0;
     let winsComputer = 0;
+    let gameEnd = false;
     const btns = document.querySelectorAll('.btn');
     btns.forEach((btn) => {
         btn.addEventListener('click', function(e){
-            const playerSelection = this.textContent.toLowerCase();
-            const computerSelection = computerPlay();
-            let round = playRound(playerSelection, computerSelection);
-            
-            if (round == "you win"){
-                winsPlayer++;
-                console.log(round + "! " + playerSelection + " beats "+ computerSelection);
+            if(gameEnd == false){
+                const playerSelection = this.textContent.toLowerCase();
+                const computerSelection = computerPlay();
+                let round = playRound(playerSelection, computerSelection);
+                
+                if (round == "you win"){
+                    winsPlayer++;
+                    console.log(round + "! " + playerSelection + " beats "+ computerSelection);
+                }
+                else if (round == "you lose"){
+                    winsComputer++;
+                    console.log(round + "! " + computerSelection + " beats "+ playerSelection);
+                } 
+                else{
+                    console.log(round); 
+                }
+    
+                if(winsPlayer == 5){
+                    gameEnd = true;
+                    console.log("congrats on winning");
+                }
+                else if(winsComputer == 5){
+                    gameEnd = true;
+                    console.log("you lose.........");
+                }
             }
-            else if (round == "you lose"){
-                winsComputer++;
-                console.log(round + "! " + computerSelection + " beats "+ playerSelection);
-            } 
-            else{
-                console.log(round); 
-            }
+
     });
 });
 }
