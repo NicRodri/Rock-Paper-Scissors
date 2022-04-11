@@ -11,7 +11,7 @@ function computerPlay() {
         return "scissors";
     }
 }
-//Takes your input and returns value if it matches rock paper or scissors. User values are not case sensitive
+//Plays the game of rock paper scissors 
 function game(){
     let winsPlayer = 0;
     let winsComputer = 0;
@@ -46,7 +46,6 @@ function game(){
                     tieScore.textContent = "Ties-" + ties;
                     console.log(round); 
                 }
-    
                 if(winsPlayer == 5){
                     gameEnd = true;
                     gameFinish.textContent= "Congrats you win!!!";
@@ -57,6 +56,23 @@ function game(){
                     gameFinish.textContent= "You lose!!!";
                     console.log("you lose.........");
                 }
+                //Allows the option to play a new game
+                if(winsPlayer==5||winsComputer==5){
+                    const container = document.getElementById('container');
+                    const button = document.createElement('button');
+                    button.setAttribute('id','replay');
+                    button.textContent="Play Again?";
+                    container.appendChild(button);
+                    button.addEventListener('click', function(e){
+                        game();
+                        button.remove();
+                        pScore.textContent = "Player-0";
+                        cScore.textContent = "Computer-0";
+                        tieScore.textContent = "Ties-0";
+                        gameFinish.textContent= "";
+                    });
+                }
+                
             }
 
     });
