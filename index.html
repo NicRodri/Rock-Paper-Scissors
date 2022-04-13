@@ -9,16 +9,17 @@
 </head>
 <body>
     <h1 class="center">The RPS Game</h1>
-    <h3 class="center">Play a first to 5 wins with the CPU</h3>
+    <h3 class="center">Play a first to 5 with the CPU</h3>
     <div id="gameCount" class="row">
         <div id="playerScore">Player: 0 wins</div>
         <div id="tieScore">Ties: 0</div>
         <div id="computerScore">CPU: 0 wins</div>
     </div>
     <div id="playMade" class="row">
-        <div id="playerPlay"></div>
-        <div id="computerPlay"></div>
+        <div id="playerPlay" class="boxGreen"></div>
+        <div id="computerPlay" class="boxGreen"></div>
     </div>
+    <p id="outcome"></p>
     <h3 class="center">Click on a button below to select your move:</h3>  
     <div class="center" >
         <button id="rock" class="btn">Rock</button>
@@ -26,8 +27,8 @@
         <button id="scissors" class="btn">Scissors</button>
     </div>
 
-    <p id="gameEnd"></p>
-    <div id="container"></div>
+    <p id="gameEnd" class="center"></p>
+    <div id="container" class="center"></div>
     <script src="javascript.js"></script>
 
 </body>

@@ -21,37 +21,45 @@ function game(){
     const pPlay = document.getElementById("playerPlay");
     const cScore = document.getElementById("computerScore");
     const cPlay = document.getElementById("computerPlay");
+    const outcome = document.getElementById('outcome');
     const tieScore = document.getElementById("tieScore");
     const gameFinish = document.getElementById("gameEnd");
     const btns = document.querySelectorAll('.btn');
     btns.forEach((btn) => {
         btn.addEventListener('click', function(e){
+            //Allows the game to end after a winner is found
             if(gameEnd == false){
                 const playerSelection = this.textContent.toLowerCase();
                 const computerSelection = computerPlay();
                 pPlay.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
                 cPlay.textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+                //Logic used to determine winner
                 let round = playRound(playerSelection, computerSelection);
-                
+                //Game states
                 if (round == "you win"){
                     winsPlayer++;
                     pScore.textContent = "Player: " + winsPlayer + " wins";
+                    outcome.textContent = "You win! " + pPlay.textContent + " beats " + computerSelection + ".";
                 }
                 else if (round == "you lose"){
                     winsComputer++;
                     cScore.textContent = "CPU:  " + winsComputer + " wins";
+                    outcome.textContent = "You lose! " + cPlay.textContent + " beats " + playerSelection + ".";
                 } 
                 else{
                     ties++;
                     tieScore.textContent = "Ties: " + ties;
+                    outcome.textContent = "Tie! You both picked " + playerSelection + ".";
                 }
                 if(winsPlayer == 5){
                     gameEnd = true;
-                    gameFinish.textContent= "Congrats you win!!!";
+                    gameFinish.textContent= "You Win!!!";
+                    gameFinish.style.color = "greenyellow"
                 }
                 else if(winsComputer == 5){
                     gameEnd = true;
-                    gameFinish.textContent= "You lose!!!";
+                    gameFinish.textContent= "You Lose!!!";
+                    gameFinish.style.color = "rgb(255, 0, 64)"
                 }
                 //Allows the option to play a new game
                 if(winsPlayer==5||winsComputer==5){
@@ -59,6 +67,9 @@ function game(){
                     const button = document.createElement('button');
                     button.setAttribute('id','replay');
                     button.textContent="Play Again?";
+                    button.style.backgroundColor = "rgb(209, 0, 200)";
+                    button.style.border ="0px";
+                    button.style.borderRadius = "5px";
                     container.appendChild(button);
                     button.addEventListener('click', function(e){
                         game();
@@ -67,6 +78,7 @@ function game(){
                         cScore.textContent = "CPU: 0 wins";
                         tieScore.textContent = "Ties: 0";
                         pPlay.textContent = "";
+                        outcome.textContent= "";
                         cPlay.textContent = "";
                         gameFinish.textContent= "";
                     });
@@ -79,7 +91,7 @@ function game(){
 }
 game();
 
-//At the moment any value not rock paper or scissors is not accounted for
+//Determines who wins the rps by comparing both player and computer selections
 function playRound(playerSelection, computerSelection){
     if (playerSelection == "rock"){
         if (computerSelection == "rock"){

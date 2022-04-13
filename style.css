@@ -20,8 +20,28 @@ body{
 #playMade{
     font-size: 40px;
 }
+.boxGreen{
+    border: 3px solid greenyellow;
+    height: 47px;
+    width: 135px;
+    text-align: center;
+}
+
+#outcome{
+    display: flex;
+    font-size: 20px;
+    border: 3px solid rgb(255, 0, 64);
+    height: 47px;
+    align-items: center;
+    justify-content: center;
+}
+
 button{
     padding: 10px 30px;
     font-size: 20px;
 }
 
+#gameEnd{
+    font-size: 60px;
+    font-weight: 1000;
+}
