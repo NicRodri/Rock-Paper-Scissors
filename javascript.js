@@ -29,19 +29,21 @@ function game(){
             if(gameEnd == false){
                 const playerSelection = this.textContent.toLowerCase();
                 const computerSelection = computerPlay();
+                pPlay.textContent = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+                cPlay.textContent = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
                 let round = playRound(playerSelection, computerSelection);
                 
                 if (round == "you win"){
                     winsPlayer++;
-                    pScore.textContent = "Player-" + winsPlayer;
+                    pScore.textContent = "Player: " + winsPlayer + " wins";
                 }
                 else if (round == "you lose"){
                     winsComputer++;
-                    cScore.textContent = "Computer-" + winsComputer;
+                    cScore.textContent = "Computer:  " + winsComputer + " wins";
                 } 
                 else{
                     ties++;
-                    tieScore.textContent = "Ties-" + ties;
+                    tieScore.textContent = "Ties: " + ties;
                 }
                 if(winsPlayer == 5){
                     gameEnd = true;
@@ -61,9 +63,11 @@ function game(){
                     button.addEventListener('click', function(e){
                         game();
                         button.remove();
-                        pScore.textContent = "Player-0";
-                        cScore.textContent = "Computer-0";
-                        tieScore.textContent = "Ties-0";
+                        pScore.textContent = "Player: 0 wins";
+                        cScore.textContent = "Computer: 0 wins";
+                        tieScore.textContent = "Ties: 0";
+                        pPlay.textContent = "None";
+                        cPlay.textContent = "None";
                         gameFinish.textContent= "";
                     });
                 }

@@ -5,26 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1>The RPS Game</h1>
-    <p>Play a first to 5 wins with the CPU</p>
-    <div id="gameCount">
-        <div id="playerScore">Player-0</div>
-        <div id="computerScore">Computer-0</div>
-        <div id="tieScore">Ties-0</div>
+    <h1 class="center">The RPS Game</h1>
+    <h3 class="center">Play a first to 5 wins with the CPU</h3>
+    <div id="gameCount" class="row">
+        <div id="playerScore">Player: 0 wins</div>
+        <div id="tieScore">Ties: 0</div>
+        <div id="computerScore">Computer: 0 wins</div>
     </div>
-    <div id="playMade">
-        <div id="playerPlay">None</div>
-        <div id="computerPlay">None</div>
+    <div id="playMade" class="row">
+        <div id="playerPlay"></div>
+        <div id="computerPlay"></div>
     </div>
-    <h3>Click on a button to select your move:</h3>    
-    <button id="rock" class="btn">Rock</button>
-    <button id="paper" class="btn">Paper</button>
-    <button id="scissors" class="btn">Scissors</button>
+    <h3 class="center">Click on a button to select your move:</h3>  
+    <div class="center" >
+        <button id="rock" class="btn">Rock</button>
+        <button id="paper" class="btn">Paper</button>
+        <button id="scissors" class="btn">Scissors</button>
+    </div>
+
     <p id="gameEnd"></p>
     <div id="container"></div>
     <script src="javascript.js"></script>
+
 </body>
 </html>
