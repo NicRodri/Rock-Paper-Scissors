@@ -17,13 +17,15 @@ body{
     align-items: center;
     justify-content: space-between;
 }
+
 #playMade{
     font-size: 40px;
-}
+} 
+
 .boxGreen{
     border: 3px solid greenyellow;
     height: 47px;
-    width: 135px;
+    width: 160px;
     text-align: center;
 }
 
