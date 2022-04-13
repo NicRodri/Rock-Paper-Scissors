@@ -39,7 +39,7 @@ function game(){
                 }
                 else if (round == "you lose"){
                     winsComputer++;
-                    cScore.textContent = "Computer:  " + winsComputer + " wins";
+                    cScore.textContent = "CPU:  " + winsComputer + " wins";
                 } 
                 else{
                     ties++;
@@ -64,10 +64,10 @@ function game(){
                         game();
                         button.remove();
                         pScore.textContent = "Player: 0 wins";
-                        cScore.textContent = "Computer: 0 wins";
+                        cScore.textContent = "CPU: 0 wins";
                         tieScore.textContent = "Ties: 0";
-                        pPlay.textContent = "None";
-                        cPlay.textContent = "None";
+                        pPlay.textContent = "";
+                        cPlay.textContent = "";
                         gameFinish.textContent= "";
                     });
                 }
